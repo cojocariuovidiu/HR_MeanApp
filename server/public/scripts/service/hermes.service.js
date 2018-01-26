@@ -11,34 +11,27 @@ self.getEmployees = function(){
     $http.get('/employees')
         .then( function (response) {
             console.log('Get response: ', response.data);
-            self.employees.list = response.data;
-            console.log('self.employees.list: ', self.games.list);
-            
+            self.employees.list = response.data;   
         })
-        .catch (function(response) {
+        .catch(function(response) {
             console.log('error on Get: ', response); 
-        })
+        });
 
 }// end getEmployees
 //Call the GET here.
 self.getEmployees();
 
-
 /* POST REQUESTS */
+   self.addEmployee = function (employee) {
+    $http.post('/employees', employee)
+    .then(function(response) {
+        console.log('post response', response);
+    })
+    .catch(function (response) {
+        console.log('error on post', response);
+    });
+   }
 
-//POST new employee to the server. 
-self.addEmployee = function(employee) {
-   
-        $http.post('/employees', employee)
-            .then( function (response) {
-                console.log('Post response ', response);
-                
-            })
-            .catch (function(response) {
-                console.log('error on Post: ', response); 
-            })
-
-}// end addEmployee
 
 
 
