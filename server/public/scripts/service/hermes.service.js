@@ -12,12 +12,12 @@ self.getEmployees = function(){
         .then( function (response) {
             console.log('Get response: ', response.data);
             self.employees.list = response.data;
-            console.log('self.employees.list: ', self.games.list);
+            
             
         })
-        .catch (function(response) {
+        .catch(function(response) {
             console.log('error on Get: ', response); 
-        })
+        });
 
 }// end getEmployees
 //Call the GET here.
