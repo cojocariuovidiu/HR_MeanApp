@@ -1,0 +1,15 @@
+.hermes-container {
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.gif {
+    margin: 0 auto
+    
+    box-shadow: 5px 10px black; 
+
+
+}
