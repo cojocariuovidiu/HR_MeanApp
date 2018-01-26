@@ -11,9 +11,7 @@ self.getEmployees = function(){
     $http.get('/employees')
         .then( function (response) {
             console.log('Get response: ', response.data);
-            self.employees.list = response.data;
-            
-            
+            self.employees.list = response.data;   
         })
         .catch(function(response) {
             console.log('error on Get: ', response); 
@@ -23,22 +21,17 @@ self.getEmployees = function(){
 //Call the GET here.
 self.getEmployees();
 
-
 /* POST REQUESTS */
+   self.addEmployee = function (employee) {
+    $http.post('/employees', employee)
+    .then(function(response) {
+        console.log('post response', response);
+    })
+    .catch(function (response) {
+        console.log('error on post', response);
+    });
+   }
 
-//POST new employee to the server. 
-self.addEmployee = function(employee) {
-   
-        $http.post('/employees', employee)
-            .then( function (response) {
-                console.log('Post response ', response);
-                
-            })
-            .catch (function(response) {
-                console.log('error on Post: ', response); 
-            })
-
-}// end addEmployee
 
 
 
@@ -47,18 +40,57 @@ self.addEmployee = function(employee) {
 
 
 /* PUT REQUESTS */
+self.showDetails = function(employee){
+
+    employee.detailsStatus = !employee.detailsStatus; //when clicked it can either open the details or close it if they choose.
+    
+    $http.put(`/employees/submit/${employee._id}`, employee)
+        .then(function (response) {
+            // console.log('get response', response);
+            self.getEmployees(); 
+        })
+        .catch(function (response) {
+            console.log('error on put update detailStatus', response);
+        });
+}
 
 
+self.submitButton = function(employee) {
+    $http.put(`/employees/submit/${employee._id}`, employee)
+    .then(function (response) {
+        // console.log('get response', response);
+        self.getEmployees(); 
+    })
+    .catch(function (response) {
+        console.log('error on put update employee details', response);
+    });
+}
 
-
-
-
+self.pageRefresh = function() {
+    $http.put(`/employees/refresh`)
+    .then(function (response) {
+        console.log('Page Refreshed');
+        self.getEmployees(); 
+    })
+    .catch(function (response) {
+        console.log('error on put update employee details', response);
+    });
+}
 
 
 
 /* DELETE REQUESTS */
 
-
+self.terminateEmployee = function(id) {
+    $http.delete(`/employees/${id}`)
+        .then(function (response) {
+            // console.log('get response', response);
+            self.getEmployees();
+        })
+        .catch(function (response) {
+            console.log('error on delete game', response);
+        });
+};
 
 
 
