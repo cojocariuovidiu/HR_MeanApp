@@ -1,0 +1,72 @@
+<div style="display: flex; flex-direction:column; justify-content:center; align-items:center">
+    <section>
+        <h3>
+            Select employees by title
+        </h3>
+        <select>
+            <option ng-model="vm.titles">All</option>
+            <option ng-repeat="title in vm.titles"></option>
+        </select>
+    </section>
+    <br>
+    <br>
+    <section>
+        <h3>
+            Total number of employees with title:
+        </h3>
+    </section>
+    <br>
+    <br>
+    <section>
+        <h3>
+            Data calculations based on employee salaries
+        </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Average</th>
+                    <th>Floor</th>
+                    <th>Ceiling</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sample: 21523</td>
+                    <td>Sample: 141</td>
+                    <td>Sample: 325225</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <div style="display:flex; flex-direction:row; align-items:center">
+    <section>
+        <h3>Employee Names</h3>
+        <ul>
+            <li>
+                Employee 1
+            </li>
+            <li>
+                Employee 2
+            </li>
+            <li>
+                Employee 3
+            </li>
+        </ul>
+    </section>
+    <section>
+            <h3>Employee Titles</h3>
+            <ul>
+                <li>
+                    Title 1
+                </li>
+                <li>
+                    Title 2
+                </li>
+                <li>
+                    Title 3
+                </li>
+            </ul>
+    </section>
+    </div>
+
+</div>

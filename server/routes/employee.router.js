@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const employeeSchema = require('../modules/employee.schema');
 
 let Employee = mongoose.model('Employee', employeeSchema);
@@ -53,8 +54,5 @@ let Employee = mongoose.model('Employee', employeeSchema);
 
 
 
-
-
-let Employee = mongoose.model('Employee', schema);
 
 module.exports = router;
