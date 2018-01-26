@@ -1,0 +1,20 @@
+<h1>Add a New Employee</h1>
+<div class="row">
+    <div class="col-md-12">
+    <form>
+        <label>First Name: </label>
+        <input type="text" ng-model="vm.addEmployee.firstName" class="name" placeholder="First Name" />
+        <label>Last Name: </label>
+        <input type="text" ng-model="vm.addEmployee.lastName" class="name" placeholder="Last Name" />
+        <label>Employee ID: </label>
+        <input type="number" ng-model="vm.addEmployee.employeeId" class="employeeId" placeholder="Employee ID"/>
+        <label> Job Title: </label>
+        <input type="text" ng-model="vm.addEmployee.title" class="title" placeholder="Job Title" />
+        <label>Salary: </label>
+        <input type="number" ng-model="vm.addEmployee.salary" class="salary" placeholder="Salary USD" />
+        <label>Hire Date: </label>
+        <input type="date" ng-model="vm.addEmployee.date" class="date" placeholder="Hire Date yyyy/mm/dd" />
+        <button class="btn btn-primary" ng-click="vm.addEmployee()">Add Employee</button>
+    </form>
+    </div>
+</div>
