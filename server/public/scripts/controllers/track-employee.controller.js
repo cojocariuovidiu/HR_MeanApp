@@ -2,7 +2,6 @@ myApp.controller('TrackEmployeeController', ['HermesService', function(HermesSer
     const self = this;
     self.editStatus = false; //to show/hide edit status universal to controller
     self.tableStatus = true; //to show/hide table status universal to controller
-
     HermesService.getEmployees();
     // Data bind to HermesService:  
     self.employees = HermesService.employees;
@@ -13,9 +12,10 @@ myApp.controller('TrackEmployeeController', ['HermesService', function(HermesSer
     self.showDetails = function(employee){ // place inside details button displayed it has this NGCLICK function.
         HermesService.showDetails(employee)
         self.tableStatus = false;
+        self.testStatus = !self.testStatus;
     }
 
-    self.editButton = function(employee) {
+    self.showEditStatus = function() {
         self.editStatus = !self.editStatus; //when clicked it can either open the details or close it if they choose.
     }
 
@@ -24,6 +24,17 @@ myApp.controller('TrackEmployeeController', ['HermesService', function(HermesSer
         HermesService.showDetails(employee)
     }
 
+    self.submitButton = function(employee) {
+        HermesService.submitButton(employee)
+        self.editStatus = false;
+    }
+
+
+    // Need to fix mongoose syntax to update all status.
+    // self.pageRefresh = function() {
+    //     HermesService.pageRefresh()
+    // }
+    // self.pageRefresh()
 
 
 }]);

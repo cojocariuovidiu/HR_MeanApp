@@ -32,10 +32,10 @@
             <p ng-if="vm.editStatus">Salary: <input type="text" ng-model="employee.salary"> </p>
             <p>Employee Id: {{employee.employeeId}} </p>
             <p>Hired Date: {{employee.hireDate | date:"yyyy-MM-dd"}} </p>
-            <button ng-click="vm.editButton(employee)" ng-if="!vm.editStatus">Edit</button>
+            <button ng-click="vm.showEditStatus()" ng-if="!vm.editStatus">Edit</button>
             <button ng-click="vm.closeButton(employee)" ng-if="!vm.editStatus">Close</button>
             <button ng-click="vm.submitButton(employee)" ng-if="vm.editStatus">Submit</button>
-            <button ng-click="vm.editButton(employee)" ng-if="vm.editStatus">Cancel</button>
+            <button ng-click="vm.showEditStatus()" ng-if="vm.editStatus">Cancel</button>
         </div>
     </div>
 </div>

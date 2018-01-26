@@ -62,9 +62,28 @@ self.showDetails = function(employee){
 }
 
 
+self.submitButton = function(employee) {
+    $http.put(`/employees/${employee._id}`, employee)
+    .then(function (response) {
+        // console.log('get response', response);
+        self.getEmployees(); 
+    })
+    .catch(function (response) {
+        console.log('error on put update employee details', response);
+    });
+}
 
-
-
+// Need to fix mongoose syntax to update all status.
+// self.pageRefresh = function() {
+//     $http.put(`/employees/refresh`)
+//     .then(function (response) {
+//         console.log('Page Refreshed');
+//         self.getEmployees(); 
+//     })
+//     .catch(function (response) {
+//         console.log('error on put update employee details', response);
+//     });
+// }
 
 
 

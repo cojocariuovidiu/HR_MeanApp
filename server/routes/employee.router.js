@@ -58,12 +58,13 @@ router.put('/:id', (req, res) => {
     let uniqueId = req.params.id;
     let employee = req.body;
     // update in collection
+    console.log('LOGGGGGGGGGGGGGGGGGGGGG',employee);
     Employee.findByIdAndUpdate(
         {"_id": uniqueId},
         {$set: employee},
         (error, updatedDocument) => {
             if (error) {
-                console.log('error on remove: ', error);
+                console.log('error on put update: ', error);
                 res.sendStatus(500);
             } else {
                 // console.log('Document before it was updated!: ', updatedDocument);
@@ -74,8 +75,26 @@ router.put('/:id', (req, res) => {
 
 });
 
+// Need to fix mongoose syntax to update all status.
+// router.put('/refresh', (req, res) => {
+//     let uniqueId = req.params.id;
+//     let employee = req.body;
+//     // update in collection
+//     Employee.update(
+//         {$set: {detailsStatus: false}},
+//         {multi: true},
+//         (error, updatedDocument) => {
+//             if (error) {
+//                 console.log('error on refresh: ', error);
+//                 res.sendStatus(500);
+//             } else {
+//                 // console.log('Document before it was updated!: ', updatedDocument);
+//                 res.sendStatus(200);
+//             }
+//         }
+//     )
 
-
+// });
 
 
 
