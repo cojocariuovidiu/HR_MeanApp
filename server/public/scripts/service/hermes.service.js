@@ -41,5 +41,27 @@ console.log('inside service');
 
 
 
+
+
+/* FUNCTIONS - Track Employee Controller*/
+
+
+
+
+
+
+
+
+
+
+
+/* FUNCTIONS - Reports Controller*/
+
+
+
+
+
+
+
   
 }]);

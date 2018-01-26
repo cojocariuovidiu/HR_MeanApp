@@ -55,6 +55,13 @@ let schema = new mongoose.Schema(
 
 
 
+/* MISC FUNCTIONS (If any) */
+
+
+
+
+
+
 
 let Employee = mongoose.model('Employee', schema);
 
