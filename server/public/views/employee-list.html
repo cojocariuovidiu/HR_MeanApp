@@ -1,11 +1,39 @@
-<div ng-if="vm.editStatus">
-    <div class="detailsContainer">
-        <p>Employee: {{employee.firstName}} {{employee.lastName}} </p>
-        <p>Title: {{employee.title}} </p>
-        <p>Salary: {{employee.salary}} </p>
-        <p>Employee Id: {{employee.employeeId}} </p>
-        <p>Hired Date: {{employee.hireDate}} </p>
-        <button ng-click="">Edit</button>
-        <button ng-click="">Close</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+    <div class="detailsContainer" ng-repeat="employee in employees.data">
+        <!-- employee/s is a PLACEHOLDER until we have a get. Replace with proper name -->
+        <div ng-if="vm.editStatus">
+            <p>Employee: {{employee.firstName}} {{employee.lastName}} </p>
+            <p>Title: {{employee.title}} </p>
+            <p>Salary: {{employee.salary}} </p>
+            <p>Employee Id: {{employee.employeeId}} </p>
+            <p>Hired Date: {{employee.hireDate}} </p>
+            <button ng-click="">Edit</button>
+            <button ng-click="vm.closeButton(employee.)">Close</button>
+        </div>
     </div>
 </div>

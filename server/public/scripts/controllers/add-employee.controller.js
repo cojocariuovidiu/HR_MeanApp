@@ -1,4 +1,4 @@
-myApp.controller('addEmployee', ['HermesService', function(HermesService) {
+myApp.controller('AddEmployeeController', ['HermesService', function(HermesService) {
     const self = this;
     
 
