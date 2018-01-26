@@ -11,9 +11,7 @@ self.getEmployees = function(){
     $http.get('/employees')
         .then( function (response) {
             console.log('Get response: ', response.data);
-            self.employees.list = response.data;
-            
-            
+            self.employees.list = response.data;   
         })
         .catch(function(response) {
             console.log('error on Get: ', response); 
@@ -22,7 +20,6 @@ self.getEmployees = function(){
 }// end getEmployees
 //Call the GET here.
 self.getEmployees();
-
 
 /* POST REQUESTS */
 
