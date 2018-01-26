@@ -20,9 +20,13 @@ myApp.config(function($routeProvider) {
             templateUrl: '/views/home.html',
             controller: 'HomeController as vm'
         })
-        
         .otherwise(
             { redirectTo: '/home' }
         );
     
 });
+
+
+
+
+  

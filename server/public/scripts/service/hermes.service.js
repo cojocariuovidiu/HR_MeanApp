@@ -1,7 +1,7 @@
 myApp.service('HermesService',['$http', function($http) {
 console.log('inside service');
     const self = this;
-    self.employees = { list: [] };
+    self.employees = { list: [{name: 'Clown', title: 'Pat'},{name: 'Monkey', title: 'D'},{name: 'Peach', title: 'A'}] };
 
 /* GET REQUESTS */
 
@@ -16,28 +16,21 @@ self.getEmployees = function(){
         .catch(function(response) {
             console.log('error on Get: ', response); 
         });
-
 }// end getEmployees
+
 //Call the GET here.
 self.getEmployees();
 
 /* POST REQUESTS */
-   self.addEmployee = function (employee) {
+self.addEmployee = function (employee) {
     $http.post('/employees', employee)
-    .then(function(response) {
+        .then(function(response) {
         console.log('post response', response);
     })
-    .catch(function (response) {
+        .catch(function (response) {
         console.log('error on post', response);
     });
-   }
-
-
-
-
-
-
-
+}
 
 /* PUT REQUESTS */
 self.showDetails = function(employee){
@@ -110,8 +103,18 @@ self.terminateEmployee = function(id) {
 
 
 /* FUNCTIONS - Reports Controller*/
+self.salaryMetrics = {};
 
-
+self.getAverageSalary = function (title) {
+    $http.get(`/employees/${title}`)
+    .then((result)=>{
+        console.log('get avg sal result: ', result.data);
+        self.salaryMetrics.list = result.data;
+        console.log(self.salaryMetrics);
+        
+        
+    })
+}
 
 
 
