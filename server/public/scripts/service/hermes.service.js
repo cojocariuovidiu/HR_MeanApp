@@ -15,7 +15,15 @@ console.log('inside service');
 
 
 /* POST REQUESTS */
-
+   self.addEmployee = function (employee) {
+    $http.post('/employees', employee)
+    .then(function(response) {
+        console.log('post response', response);
+    })
+    .catch(function (response) {
+        console.log('error on post', response);
+    });
+   }
 
 
 
