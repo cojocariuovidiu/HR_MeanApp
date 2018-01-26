@@ -8,8 +8,9 @@
                 <th>Terminate</th>       
             </tr>
         </thead>    
-            <tbody ng-repeat="employee in vm.employees">
-                <tr>
+            <tbody>
+                <!-- will need to change to employee in vm.employees.list -->
+                <tr ng-repeat="employee in vm.employees.list">
                     <td>{{employee.employeeId}}</td>                    
                     <td>{{employee.firstName}} {{employee.lastName}}</td>
                     <td><button ng-click="vm.showDetails(employee)">Details</button></td>
