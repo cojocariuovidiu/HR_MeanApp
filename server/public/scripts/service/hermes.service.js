@@ -20,6 +20,9 @@ self.getEmployees = function(){
         })
 
 }// end getEmployees
+//Call the GET here.
+self.getEmployees();
+
 
 /* POST REQUESTS */
 
