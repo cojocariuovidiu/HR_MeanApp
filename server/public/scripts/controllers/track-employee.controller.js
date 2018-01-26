@@ -1,6 +1,10 @@
 myApp.controller('TrackEmployeeController', ['HermesService', function(HermesService) {
     const self = this;
 
+
+    // Place Holder Array for testing output to DOM.
+    //This will need to be bound to Hermes in order to keep it up-to-date.
+    // Data bind to HermesService:  
     self.employees = [
 
             {
@@ -41,15 +45,7 @@ myApp.controller('TrackEmployeeController', ['HermesService', function(HermesSer
 
 
 
-//example employee data
-    // {
-    //     firstName: {type: String, required: true},
-    //     lastName: {type: String, required: true},
-    //     employeeId: {type: Number, unique: true, required: true},
-    //     title: {type: String, required: true},
-    //     salary: {type: Number, required: true},
-    //     hireDate: {type: Date, default: Date.now}
-    // }
+
 
 
 

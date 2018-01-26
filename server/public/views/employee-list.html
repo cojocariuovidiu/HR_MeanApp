@@ -8,8 +8,8 @@
                 <th>Terminate</th>       
             </tr>
         </thead>    
-            <tbody ng-repeat="employee in vm.employees">
-                <tr>
+            <tbody>
+                <tr ng-repeat="employee in vm.employees">
                     <td>{{employee.employeeId}}</td>                    
                     <td>{{employee.firstName}} {{employee.lastName}}</td>
                     <td><button ng-click="">Details</button></td>
