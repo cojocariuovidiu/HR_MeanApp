@@ -1,4 +1,4 @@
-let myApp = angular.module('myApp', ['ngRoute']);
+let myApp = angular.module('myApp', ['ngRoute', 'ngMaterial']);
 
 myApp.config(function($routeProvider) {
     console.log('config loaded');
@@ -6,18 +6,27 @@ myApp.config(function($routeProvider) {
     $routeProvider
         .when('/employee-list', {
             templateUrl: '/views/employee-list.html',
-            controller: 'whateverControllerthisis as vm'
+            controller: 'TrackEmployeeController as vm'
         })
-        .when('/new-employee', {
-            templateUrl: '/views/new-employee.html',
-            controller: 'whateverControllerthisis as vm'
+        .when('/add-employee', {
+            templateUrl: '/views/add-employee.html',
+            controller: 'AddEmployeeController as vm'
         })
         .when('/reports', {
             templateUrl: '/views/reports.html',
-            controller: 'whateverControllerthisis as vm'
+            controller: 'ReportController as vm'
+        })
+        .when('/home', {
+            templateUrl: '/views/home.html',
+            controller: 'HomeController as vm'
         })
         .otherwise(
-            { redirectTo: '/new-employee' }
+            { redirectTo: '/home' }
         );
     
 });
+
+
+
+
+  
