@@ -22,20 +22,16 @@ self.getEmployees = function(){
 self.getEmployees();
 
 /* POST REQUESTS */
+   self.addEmployee = function (employee) {
+    $http.post('/employees', employee)
+    .then(function(response) {
+        console.log('post response', response);
+    })
+    .catch(function (response) {
+        console.log('error on post', response);
+    });
+   }
 
-//POST new employee to the server. 
-self.addEmployee = function(employee) {
-   
-        $http.post('/employees', employee)
-            .then( function (response) {
-                console.log('Post response ', response);
-                
-            })
-            .catch (function(response) {
-                console.log('error on Post: ', response); 
-            })
-
-}// end addEmployee
 
 
 

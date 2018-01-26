@@ -3,18 +3,19 @@
     <div class="col-md-12">
     <form>
         <label>First Name: </label>
-        <input type="text" ng-model="vm.newEmployee.firstName" class="name" placeholder="First Name" />
+
+        <input type="text" ng-model="vm.addedEmployee.firstName" class="name" placeholder="First Name" />
         <label>Last Name: </label>
-        <input type="text" ng-model="vm.newEmployee.lastName" class="name" placeholder="Last Name" />
+        <input type="text" ng-model="vm.addedEmployee.lastName" class="name" placeholder="Last Name" />
         <label>Employee ID: </label>
-        <input type="number" ng-model="vm.newEmployee.employeeId" class="employeeId" placeholder="Employee ID"/>
+        <input type="number" ng-model="vm.addedEmployee.employeeId" class="employeeId" placeholder="Employee ID"/>
         <label> Job Title: </label>
-        <input type="text" ng-model="vm.newEmployee.title" class="title" placeholder="Job Title" />
+        <input type="text" ng-model="vm.addedEmployee.title" class="title" placeholder="Job Title" />
         <label>Salary: </label>
-        <input type="number" ng-model="vm.newEmployee.salary" class="salary" placeholder="Salary USD" />
+        <input type="number" ng-model="vm.addedEmployee.salary" class="salary" placeholder="Salary USD" />
         <label>Hire Date: </label>
-        <input type="date" ng-model="vm.newEmployee.date" class="date" placeholder="Hire Date yyyy/mm/dd" />
-        <button class="btn btn-primary" ng-click="vm.addEmployee(vm.newEmployee)">Add Employee</button>
+        <input type="date" ng-model="vm.addedEmployee.hireDate" class="date" placeholder="Hire Date yyyy/mm/dd" />
+        <button class="btn btn-primary" ng-click="vm.addEmployee(vm.addedEmployee)">Add Employee</button>
     </form>
     </div>
 </div>
