@@ -13,6 +13,44 @@ let schema = new mongoose.Schema(
     }
 )
 
+/* GET REQUESTS */
+
+
+
+
+
+
+
+
+
+/* POST REQUESTS */
+
+
+
+
+
+
+
+
+
+/* PUT REQUESTS */
+
+
+
+
+
+
+
+
+
+/* DELETE REQUESTS */
+
+
+
+
+
+
+  
 
 
 
