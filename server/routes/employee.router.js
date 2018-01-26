@@ -16,7 +16,6 @@ router.get('/', (req, res)=> {
             console.log('error on find', error);
             res.sendStatus(500)
         }else {
-            console.log('Found your employees: ', data);
             res.send(data);
         }
     }); 
@@ -40,7 +39,6 @@ router.post('/', (req, res) => {
             console.log('error on save: ', error);
             res.sendStatus(500);            
         } else {
-            console.log('new game Document: ', savedEmployee);            
             res.sendStatus(201);
         }
     }); // end save
@@ -54,11 +52,29 @@ router.post('/', (req, res) => {
 
 
 /* PUT REQUESTS */
-router.put('/:id', (req, res) => {
+router.put('/refresh', (req, res) => {
+    // update in collection
+    Employee.update(
+        {},
+        {detailsStatus: false},
+        {multi: true},
+        (error, updatedDocument) => {
+            if (error) {
+                console.log('THIS IS THE ERROR ON REFERSHHHHHHHHHHHHHH: ', error);
+                res.sendStatus(500);
+            } else {
+                // console.log('Document before it was updated!: ', updatedDocument);
+                res.sendStatus(200);
+            }
+        }
+    )
+
+});
+
+router.put('/submit/:id', (req, res) => {
     let uniqueId = req.params.id;
     let employee = req.body;
     // update in collection
-    console.log('LOGGGGGGGGGGGGGGGGGGGGG',employee);
     Employee.findByIdAndUpdate(
         {"_id": uniqueId},
         {$set: employee},
@@ -75,26 +91,6 @@ router.put('/:id', (req, res) => {
 
 });
 
-// Need to fix mongoose syntax to update all status.
-// router.put('/refresh', (req, res) => {
-//     let uniqueId = req.params.id;
-//     let employee = req.body;
-//     // update in collection
-//     Employee.update(
-//         {$set: {detailsStatus: false}},
-//         {multi: true},
-//         (error, updatedDocument) => {
-//             if (error) {
-//                 console.log('error on refresh: ', error);
-//                 res.sendStatus(500);
-//             } else {
-//                 // console.log('Document before it was updated!: ', updatedDocument);
-//                 res.sendStatus(200);
-//             }
-//         }
-//     )
-
-// });
 
 
 
@@ -104,7 +100,23 @@ router.put('/:id', (req, res) => {
 
 
 
+router.delete('/:id', (req, res) => {
+    let uniqueId = req.params.id;
+    Employee.findByIdAndRemove(
+        {"_id": uniqueId},
+        // function(error, removed) 
+        (error, removedDocument) => {
+            if (error) {
+                console.log('error on remove: ', error);
+                res.sendStatus(500);
+            } else {
+                // console.log('Document we removed: ', removedDocument);
+                res.sendStatus(200);
+            }
+        }
+    )
 
+});
 
 
   
