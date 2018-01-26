@@ -7,7 +7,8 @@ let schema = new mongoose.Schema(
         employeeId: {type: Number, unique: true, required: true},
         title: {type: String, required: true},
         salary: {type: Number, required: true},
-        hireDate: {type: Date, default: Date.now}
+        hireDate: {type: Date, default: Date.now},
+        detailsStatus: {type: Boolean, default: false}
     }
 )
 
