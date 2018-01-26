@@ -2,7 +2,7 @@ myApp.controller('TrackEmployeeController', ['HermesService', function(HermesSer
     const self = this;
     self.editStatus = false; //to show/hide edit status universal to controller
     self.tableStatus = true; //to show/hide table status universal to controller
-    HermesService.getEmployees();
+    HermesService.pageRefresh()
     // Data bind to HermesService:  
     self.employees = HermesService.employees;
     
@@ -28,13 +28,6 @@ myApp.controller('TrackEmployeeController', ['HermesService', function(HermesSer
         HermesService.submitButton(employee)
         self.editStatus = false;
     }
-
-
-    // Need to fix mongoose syntax to update all status.
-    // self.pageRefresh = function() {
-    //     HermesService.pageRefresh()
-    // }
-    // self.pageRefresh()
 
 
 }]);
