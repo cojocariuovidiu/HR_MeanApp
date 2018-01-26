@@ -1,10 +1,8 @@
 myApp.controller('TrackEmployeeController', ['HermesService', function(HermesService) {
     const self = this;
-
-
     // Place Holder Array for testing output to DOM.
     //This will need to be bound to Hermes in order to keep it up-to-date.
-    // Data bind to HermesService:  
+    // Data bind to HermesService:  self.employees = HermesService.games;
     self.employees = [
 
             {
@@ -36,9 +34,6 @@ myApp.controller('TrackEmployeeController', ['HermesService', function(HermesSer
                 title: 'Engineering Programmer',
                 salary: 13000,
             }
-
-
-
     ];
 
 
