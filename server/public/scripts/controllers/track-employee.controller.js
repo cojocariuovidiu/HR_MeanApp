@@ -29,8 +29,10 @@ myApp.controller('TrackEmployeeController', ['HermesService', function(HermesSer
         self.editStatus = false;
     }
 
-    self.terminateEmployee = function(id) {
-        HermesService.terminateEmployee(id);
+    self.terminateEmployee = function(employee) {
+        if (confirm(`Are you sure you want to Terminate ${employee.firstName} ${employee.lastName}?`) == true) {
+            HermesService.terminateEmployee(employee._id);    
+        }
     };
 
 
