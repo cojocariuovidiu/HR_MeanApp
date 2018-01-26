@@ -1,7 +1,7 @@
 myApp.service('HermesService',['$http', function($http) {
 console.log('inside service');
     const self = this;
-    self.employees = { list: [] };
+    self.employees = { list: [{name: 'Clown', title: 'Pat'},{name: 'Monkey', title: 'D'},{name: 'Peach', title: 'A'}] };
 
 /* GET REQUESTS */
 
@@ -78,8 +78,18 @@ self.addEmployee = function(employee) {
 
 
 /* FUNCTIONS - Reports Controller*/
+self.salaryMetrics = {};
 
-
+self.getAverageSalary = function (title) {
+    $http.get(`/employees/${title}`)
+    .then((result)=>{
+        console.log('get avg sal result: ', result.data);
+        self.salaryMetrics.list = result.data;
+        console.log(self.salaryMetrics);
+        
+        
+    })
+}
 
 
 

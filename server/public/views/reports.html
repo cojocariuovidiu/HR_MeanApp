@@ -1,0 +1,66 @@
+<div style="display: flex; flex-direction:column; justify-content:center; align-items:center">
+    <section>
+        <h3>
+            Select employees by title
+        </h3>
+        <select ng-model="vm.currentTitle" ng-change="vm.list(vm.currentTitle)">
+            <option ng-repeat="title in vm.employees.list">{{title.title}}</option>
+        </select>
+    </section>
+    <br>
+    <br>
+    <section>
+        <h3>
+            Total number of employees with title: {{vm.employees.list.length}}
+        </h3>
+    </section>
+    <br>
+    <br>
+    <section>
+        <h3>
+            Data calculations based on employee salaries
+        </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Average</th>
+                    <th>Floor</th>
+                    <th>Ceiling</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sample:  <span ng-repeat="metric in vm.salaryMetrics.list | filter:{_id: vm.currentTitle}">
+                            {{metric.averageSalary}}
+                    </span></td>
+                    <td>Sample:  <span ng-repeat="metric in vm.salaryMetrics.list | filter:{_id: vm.currentTitle}">
+                            {{metric.floorSalary}}
+                    </span></td>
+                    <td>Sample:  <span ng-repeat="metric in vm.salaryMetrics.list | filter:{_id: vm.currentTitle}">
+                            {{metric.ceilingSalary}}
+                    </span></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <div style="display:flex; flex-direction:row; align-items:center">
+        <section>
+            <h3>Employee Names</h3>
+            <ul>
+                <!-- {{vm.employees.list}} -->
+                <li ng-repeat="name in vm.employees.list | filter:{title: vm.currentTitle}">
+                    {{name.firstName}} {{name.lastName}}
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3>Employee Titles</h3>
+            <ul>
+                <li ng-repeat="title in vm.employees.list| filter:{title: vm.currentTitle}">
+                    {{title.title}}
+                </li>
+            </ul>
+        </section>
+    </div>
+
+</div>
