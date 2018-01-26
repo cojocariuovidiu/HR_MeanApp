@@ -1,0 +1,10 @@
+.detailsContainer {
+    width: 300px;
+    margin: 0 auto;
+    border: solid black 1px;
+    display: flex;
+}
+
+.textMargin {
+    margin: 30px
+}
