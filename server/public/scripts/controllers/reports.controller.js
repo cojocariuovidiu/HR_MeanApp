@@ -1,33 +1,20 @@
-myApp.controller('ReportController', ['HermesService', function(HermesService) {
+myApp.controller('ReportController', ['HermesService', function (HermesService) {
     const self = this;
-    self.titles = ['Clown', 'Monkey', 'Peach'];
+
+    self.list = function (title) {
+        console.log('title ', title);
+        if (title == 'All') {
+            console.log('all');
+        }
+
+        HermesService.getAverageSalary(title);
+    };
 
 
-    for (let i = 0; i < self.employeeList.length; i++) {
-        self.titles.push(self.employeeList[i].title);
-    }
+    self.salaryMetrics = HermesService.salaryMetrics;
+    self.employees = HermesService.employees;
+    console.log('metrics: ', self.salaryMetrics);
 
-    self.employeeList = HermesService.employeeList;
-
-    getAverage()
+    // getAverage()
 
 }]);
-
-
-let pipeline = 
-[
-    {
-        "$group": {
-            "_id": "$title",
-            "avgSalary": {"$avg": "$salary"}
-        }
-    }
-]
-
-Employee.aggregate(pipeline, function(err, result){
-    if(err) {
-        res.send(String(err));
-    }
-    console.log('avg result ', result);
-    // res.send(result);
-})
