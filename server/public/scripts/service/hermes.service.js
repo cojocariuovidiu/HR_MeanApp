@@ -47,7 +47,19 @@ self.addEmployee = function(employee) {
 
 
 /* PUT REQUESTS */
+self.showDetails = function(employee){
 
+    employee.detailsStatus = !employee.detailsStatus; //when clicked it can either open the details or close it if they choose.
+    
+    $http.put(`/employees/${employee._id}`, employee)
+        .then(function (response) {
+            // console.log('get response', response);
+            self.getEmployees(); 
+        })
+        .catch(function (response) {
+            console.log('error on put update detailStatus', response);
+        });
+}
 
 
 

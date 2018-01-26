@@ -54,7 +54,25 @@ router.post('/', (req, res) => {
 
 
 /* PUT REQUESTS */
+router.put('/:id', (req, res) => {
+    let uniqueId = req.params.id;
+    let employee = req.body;
+    // update in collection
+    Employee.findByIdAndUpdate(
+        {"_id": uniqueId},
+        {$set: employee},
+        (error, updatedDocument) => {
+            if (error) {
+                console.log('error on remove: ', error);
+                res.sendStatus(500);
+            } else {
+                // console.log('Document before it was updated!: ', updatedDocument);
+                res.sendStatus(200);
+            }
+        }
+    )
 
+});
 
 
 

@@ -1,5 +1,5 @@
 <div>
-    <table>
+    <table ng-if="vm.tableStatus">
         <thead>
             <tr>
                 <th>Employee ID</th>
@@ -20,9 +20,9 @@
     </table>            
 </div>
 <div>
-    <div class="detailsContainer" ng-repeat="employee in vm.employees">
+    <div class="detailsContainer" ng-repeat="employee in vm.employees.list">
         <!-- employee/s is a PLACEHOLDER until we have a get. Replace with proper name -->
-        <div>
+        <div ng-if="employee.detailsStatus">
             <p ng-if="!vm.editStatus">Employee: {{employee.firstName}} {{employee.lastName}} </p>
             <p ng-if="!vm.editStatus">Title: {{employee.title}} </p>
             <p ng-if="!vm.editStatus">Salary: {{employee.salary}} </p>
@@ -35,7 +35,7 @@
             <button ng-click="vm.editButton(employee)" ng-if="!vm.editStatus">Edit</button>
             <button ng-click="vm.closeButton(employee)" ng-if="!vm.editStatus">Close</button>
             <button ng-click="vm.submitButton(employee)" ng-if="vm.editStatus">Submit</button>
-            <button ng-click="vm.cancelButton(employee)" ng-if="vm.editStatus">Cancel</button>
+            <button ng-click="vm.editButton(employee)" ng-if="vm.editStatus">Cancel</button>
         </div>
     </div>
 </div>
