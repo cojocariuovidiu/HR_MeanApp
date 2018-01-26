@@ -81,7 +81,16 @@ self.pageRefresh = function() {
 
 /* DELETE REQUESTS */
 
-
+self.terminateEmployee = function(id) {
+    $http.delete(`/employees/${id}`)
+        .then(function (response) {
+            // console.log('get response', response);
+            self.getEmployees();
+        })
+        .catch(function (response) {
+            console.log('error on delete game', response);
+        });
+};
 
 
 

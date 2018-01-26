@@ -2,7 +2,7 @@ myApp.controller('TrackEmployeeController', ['HermesService', function(HermesSer
     const self = this;
     self.editStatus = false; //to show/hide edit status universal to controller
     self.tableStatus = true; //to show/hide table status universal to controller
-    HermesService.pageRefresh()
+    HermesService.pageRefresh();
     // Data bind to HermesService:  
     self.employees = HermesService.employees;
     
@@ -21,13 +21,17 @@ myApp.controller('TrackEmployeeController', ['HermesService', function(HermesSer
 
     self.closeButton = function(employee) {
         self.tableStatus = true; //when clicked it can either open the details or close it if they choose.
-        HermesService.showDetails(employee)
+        HermesService.showDetails(employee);
     }
 
     self.submitButton = function(employee) {
-        HermesService.submitButton(employee)
+        HermesService.submitButton(employee);
         self.editStatus = false;
     }
+
+    self.terminateEmployee = function(id) {
+        HermesService.terminateEmployee(id);
+    };
 
 
 }]);

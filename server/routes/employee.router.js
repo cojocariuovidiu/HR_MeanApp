@@ -100,23 +100,23 @@ router.put('/submit/:id', (req, res) => {
 
 
 
-// router.delete('/:id', (req, res) => {
-//     let uniqueId = req.params.id;
-//     Game.findByIdAndRemove(
-//         {"_id": uniqueId},
-//         // function(error, removed) 
-//         (error, removedDocument) => {
-//             if (error) {
-//                 console.log('error on remove: ', error);
-//                 res.sendStatus(500);
-//             } else {
-//                 // console.log('Document we removed: ', removedDocument);
-//                 res.sendStatus(200);
-//             }
-//         }
-//     )
+router.delete('/:id', (req, res) => {
+    let uniqueId = req.params.id;
+    Employee.findByIdAndRemove(
+        {"_id": uniqueId},
+        // function(error, removed) 
+        (error, removedDocument) => {
+            if (error) {
+                console.log('error on remove: ', error);
+                res.sendStatus(500);
+            } else {
+                // console.log('Document we removed: ', removedDocument);
+                res.sendStatus(200);
+            }
+        }
+    )
 
-// });
+});
 
 
   
