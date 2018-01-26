@@ -16,28 +16,21 @@ self.getEmployees = function(){
         .catch(function(response) {
             console.log('error on Get: ', response); 
         });
-
 }// end getEmployees
+
 //Call the GET here.
 self.getEmployees();
 
 /* POST REQUESTS */
-   self.addEmployee = function (employee) {
+self.addEmployee = function (employee) {
     $http.post('/employees', employee)
-    .then(function(response) {
+        .then(function(response) {
         console.log('post response', response);
     })
-    .catch(function (response) {
+        .catch(function (response) {
         console.log('error on post', response);
     });
-   }
-
-
-
-
-
-
-
+}
 
 /* PUT REQUESTS */
 
