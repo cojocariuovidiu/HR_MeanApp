@@ -60,7 +60,7 @@ self.submitButton = function(employee) {
 }
 
 self.pageRefresh = function() {
-    $http.put(`/employees/refresh`)
+    $http.put('/employees/refresh/')
     .then(function (response) {
         console.log('Page Refreshed');
         self.getEmployees(); 
