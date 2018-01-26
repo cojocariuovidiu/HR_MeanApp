@@ -3,4 +3,36 @@ myApp.controller('TrackEmployeeController', ['HermesService', function(HermesSer
 
 
 
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+/* Details Button */
+
+
+
+
+
+
+
+
+
+
+
+
 }]);

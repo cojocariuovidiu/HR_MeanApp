@@ -1,0 +1,16 @@
+<div>
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Details</th>
+            <th>Terminate</th>       
+        </tr>
+        <tbody ng-repeat="employee in vm.employees">
+            <tr>
+                <td>{{employee.employeeId}}</td>                    
+                <td>{{employee.firstName}} {{employee.lastName}}</td>
+                <td><button ng-click="">Details</button></td>
+                <td><button ng-click="">Terminate</button></td>    
+            </tr>           
+</div>
