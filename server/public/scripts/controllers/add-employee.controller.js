@@ -1,12 +1,12 @@
 myApp.controller('AddEmployeeController', ['HermesService', function(HermesService) {
     const self = this;
-    self.addEmplopyee = {};
+    self.newEmplopyee = {};
     
     
 self.addEmployee = function(employee){
-    console.log('employee: ', employee);
     
-    //HermesService.addEmployee(employee);
+    
+    HermesService.addEmployee(employee);
 }
     
 
