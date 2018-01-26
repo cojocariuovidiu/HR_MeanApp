@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const employeeSchema = require('../modules/employee.schema');
 
 let Employee = mongoose.model('Employee', employeeSchema);
@@ -17,7 +18,21 @@ let Employee = mongoose.model('Employee', employeeSchema);
 
 /* POST REQUESTS */
 
+router.post('/', (req, res) => {
+    console.log('data to save: ', req.body);
+    let employeeToAdd = new Employee(req.body);
 
+    employeeToAdd.save( (error, savedEmployee) => {
+        if (error) {
+            console.log('error on save: ', error);
+            res.sendStatus(500);            
+        } else {
+            console.log('new game Document: ', savedEmployee);            
+            res.sendStatus(201);
+        }
+    }); // end save
+    
+}); // end post route
 
 
 
@@ -55,6 +70,6 @@ let Employee = mongoose.model('Employee', employeeSchema);
 
 
 
-let Employee = mongoose.model('Employee', schema);
+
 
 module.exports = router;

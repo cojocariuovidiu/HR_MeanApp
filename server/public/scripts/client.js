@@ -9,7 +9,7 @@ myApp.config(function($routeProvider) {
             controller: 'TrackEmployeeController as vm'
         })
         .when('/add-employee', {
-            templateUrl: '/views/new-employee.html',
+            templateUrl: '/views/add-employee.html',
             controller: 'AddEmployeeController as vm'
         })
         .when('/reports', {
