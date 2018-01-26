@@ -12,6 +12,7 @@
     <section>
         <h3>
             Total number of employees with title: {{vm.employees.list.length}}
+            <!-- Not updating with proper title totals yet -->
         </h3>
     </section>
     <br>
@@ -30,15 +31,21 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Sample:  <span ng-repeat="metric in vm.salaryMetrics.list | filter:{_id: vm.currentTitle}">
+                    <td>Sample:
+                        <span ng-repeat="metric in vm.salaryMetrics.list | filter:{_id: vm.currentTitle}">
                             {{metric.averageSalary}}
-                    </span></td>
-                    <td>Sample:  <span ng-repeat="metric in vm.salaryMetrics.list | filter:{_id: vm.currentTitle}">
+                        </span>
+                    </td>
+                    <td>Sample:
+                        <span ng-repeat="metric in vm.salaryMetrics.list | filter:{_id: vm.currentTitle}">
                             {{metric.floorSalary}}
-                    </span></td>
-                    <td>Sample:  <span ng-repeat="metric in vm.salaryMetrics.list | filter:{_id: vm.currentTitle}">
+                        </span>
+                    </td>
+                    <td>Sample:
+                        <span ng-repeat="metric in vm.salaryMetrics.list | filter:{_id: vm.currentTitle}">
                             {{metric.ceilingSalary}}
-                    </span></td>
+                        </span>
+                    </td>
                 </tr>
             </tbody>
         </table>
