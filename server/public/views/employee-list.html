@@ -1,32 +1,27 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div>
-    <div class="detailsContainer" ng-repeat="employee in employees.data">
+    <table>
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Details</th>
+                <th>Terminate</th>       
+            </tr>
+        </thead>    
+            <tbody ng-repeat="employee in vm.employees">
+                <tr>
+                    <td>{{employee.employeeId}}</td>                    
+                    <td>{{employee.firstName}} {{employee.lastName}}</td>
+                    <td><button ng-click="vm.showDetails(employee.detailsStatus)">Details</button></td>
+                    <td><button ng-click="">Terminate</button></td>    
+                </tr>
+            </tbody>   
+    </table>            
+</div>
+<div>
+    <div class="detailsContainer" ng-repeat="employee in employees">
         <!-- employee/s is a PLACEHOLDER until we have a get. Replace with proper name -->
-        <div ng-if="vm.editStatus">
+        <div ng-if="employee.detailsStatus">
             <p>Employee: {{employee.firstName}} {{employee.lastName}} </p>
             <p>Title: {{employee.title}} </p>
             <p>Salary: {{employee.salary}} </p>

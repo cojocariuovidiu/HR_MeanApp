@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose')
 const employeeSchema = require('../modules/employee.schema');
+const mongoose = require('mongoose');
 
 let Employee = mongoose.model('Employee', employeeSchema);
 
