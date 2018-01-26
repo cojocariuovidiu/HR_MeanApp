@@ -11,7 +11,6 @@ myApp.controller('TrackEmployeeController', ['HermesService', function(HermesSer
                 employeeId: 1234,
                 title: 'Programmer',
                 salary: 10000,
-                
             },
             {
                 firstName: 'Patrick',
