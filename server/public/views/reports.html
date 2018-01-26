@@ -3,8 +3,7 @@
         <h3>
             Select employees by title
         </h3>
-        <select ng-model="vm.currentTitle" ng-change="vm.list(vm.currentTitle)" >
-            <option>All</option>
+        <select ng-model="vm.currentTitle" ng-change="vm.list(vm.currentTitle)">
             <option ng-repeat="title in vm.employees.list">{{title.title}}</option>
         </select>
     </section>
@@ -12,7 +11,7 @@
     <br>
     <section>
         <h3>
-            Total number of employees with title: {{vm.names.length}}
+            Total number of employees with title: {{vm.employees.list.length}}
         </h3>
     </section>
     <br>
@@ -31,9 +30,15 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Sample: {{vm.averageSalary}}</td>
-                    <td>Sample: 141</td>
-                    <td>Sample: 325225</td>
+                    <td>Sample:  <span ng-repeat="metric in vm.salaryMetrics.list | filter:{_id: vm.currentTitle}">
+                            {{metric.averageSalary}}
+                    </span></td>
+                    <td>Sample:  <span ng-repeat="metric in vm.salaryMetrics.list | filter:{_id: vm.currentTitle}">
+                            {{metric.floorSalary}}
+                    </span></td>
+                    <td>Sample:  <span ng-repeat="metric in vm.salaryMetrics.list | filter:{_id: vm.currentTitle}">
+                            {{metric.ceilingSalary}}
+                    </span></td>
                 </tr>
             </tbody>
         </table>
@@ -42,8 +47,9 @@
         <section>
             <h3>Employee Names</h3>
             <ul>
+                <!-- {{vm.employees.list}} -->
                 <li ng-repeat="name in vm.employees.list | filter:{title: vm.currentTitle}">
-                    {{name.name}}
+                    {{name.firstName}} {{name.lastName}}
                 </li>
             </ul>
         </section>

@@ -100,7 +100,7 @@ router.get('/:title', (req, res) => {
             res.send(String(err));
         }
         console.log('avg result ', result);
-        // res.send(result);
+        res.send(result);
     })
 })
 

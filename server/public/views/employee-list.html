@@ -9,7 +9,8 @@
             </tr>
         </thead>    
             <tbody>
-                <tr ng-repeat="employee in vm.employees">
+                <!-- will need to change to employee in vm.employees.list -->
+                <tr ng-repeat="employee in vm.employees.list">
                     <td>{{employee.employeeId}}</td>                    
                     <td>{{employee.firstName}} {{employee.lastName}}</td>
                     <td><button ng-click="">Details</button></td>

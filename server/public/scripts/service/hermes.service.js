@@ -12,24 +12,33 @@ self.getEmployees = function(){
         .then( function (response) {
             console.log('Get response: ', response.data);
             self.employees.list = response.data;
-            console.log('self.employees.list: ', self.games.list);
+            
             
         })
-        .catch (function(response) {
+        .catch(function(response) {
             console.log('error on Get: ', response); 
-        })
+        });
 
 }// end getEmployees
-
-
-
-
-
+//Call the GET here.
+self.getEmployees();
 
 
 /* POST REQUESTS */
 
+//POST new employee to the server. 
+self.addEmployee = function(employee) {
+   
+        $http.post('/employees', employee)
+            .then( function (response) {
+                console.log('Post response ', response);
+                
+            })
+            .catch (function(response) {
+                console.log('error on Post: ', response); 
+            })
 
+}// end addEmployee
 
 
 
@@ -74,10 +83,11 @@ self.salaryMetrics = {};
 self.getAverageSalary = function (title) {
     $http.get(`/employees/${title}`)
     .then((result)=>{
-        console.log('get avg sal result: ', result);
-        self.salaryMetrics.averageSalary = result.averageSalary;
-        // self.salaryMetrics.floorSalary = result.floorSalary;
-        // self.salaryMetrics.ceilingSalary = result.ceilingSalary;
+        console.log('get avg sal result: ', result.data);
+        self.salaryMetrics.list = result.data;
+        console.log(self.salaryMetrics);
+        
+        
     })
 }
 
