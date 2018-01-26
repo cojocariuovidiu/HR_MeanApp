@@ -12,23 +12,29 @@
                 <tr>
                     <td>{{employee.employeeId}}</td>                    
                     <td>{{employee.firstName}} {{employee.lastName}}</td>
-                    <td><button ng-click="vm.showDetails(employee.detailsStatus)">Details</button></td>
+                    <td><button ng-click="vm.showDetails(employee)">Details</button></td>
                     <td><button ng-click="">Terminate</button></td>    
                 </tr>
             </tbody>   
     </table>            
 </div>
 <div>
-    <div class="detailsContainer" ng-repeat="employee in employees">
+    <div class="detailsContainer" ng-repeat="employee in vm.employees">
         <!-- employee/s is a PLACEHOLDER until we have a get. Replace with proper name -->
-        <div ng-if="employee.detailsStatus">
-            <p>Employee: {{employee.firstName}} {{employee.lastName}} </p>
-            <p>Title: {{employee.title}} </p>
-            <p>Salary: {{employee.salary}} </p>
+        <div>
+            <p ng-if="!vm.editStatus">Employee: {{employee.firstName}} {{employee.lastName}} </p>
+            <p ng-if="!vm.editStatus">Title: {{employee.title}} </p>
+            <p ng-if="!vm.editStatus">Salary: {{employee.salary}} </p>
+            <p ng-if="vm.editStatus">First Name: <input type="text" ng-model="employee.firstName"> </p>
+            <p ng-if="vm.editStatus">Last Name: <input type="text" ng-model="employee.lastName"> </p>
+            <p ng-if="vm.editStatus">Title: <input type="text" ng-model="employee.title"> </p>
+            <p ng-if="vm.editStatus">Salary: <input type="text" ng-model="employee.salary"> </p>
             <p>Employee Id: {{employee.employeeId}} </p>
-            <p>Hired Date: {{employee.hireDate}} </p>
-            <button ng-click="">Edit</button>
-            <button ng-click="vm.closeButton(employee.)">Close</button>
+            <p>Hired Date: {{employee.hireDate | date:"yyyy-MM-dd"}} </p>
+            <button ng-click="vm.editButton(employee)" ng-if="!vm.editStatus">Edit</button>
+            <button ng-click="vm.closeButton(employee)" ng-if="!vm.editStatus">Close</button>
+            <button ng-click="vm.submitButton(employee)" ng-if="vm.editStatus">Submit</button>
+            <button ng-click="vm.cancelButton(employee)" ng-if="vm.editStatus">Cancel</button>
         </div>
     </div>
 </div>
